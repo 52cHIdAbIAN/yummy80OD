@@ -1,0 +1,5 @@
+".\Objects\delay.obj",
+".\Objects\timer0.obj",
+".\Objects\clock.obj" 
+TO ".\Objects\0123" 
+PRINT(".\Listings\0123.m51") RAMSIZE(256) 

@@ -1,0 +1,6 @@
+TRANSFER
+".\Objects\delay.obj",
+".\Objects\nixie.obj",
+".\Objects\timer0.obj",
+".\Objects\clock.obj" 
+TO ".\Objects\0123.LIB"

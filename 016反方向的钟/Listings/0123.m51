@@ -1,0 +1,180 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/22/2023  07:45:44  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL5\C51\BIN\BL51.EXE .\Objects\delay.obj, .\Objects\timer0.obj, .\Objects\clock.obj TO .\Objects\0123 PRINT (.\List
+>> ings\0123.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\delay.obj (DELAY)
+  .\Objects\timer0.obj (TIMER0)
+  .\Objects\clock.obj (CLOCK)
+  D:\KEIL5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL5\C51\LIB\C51S.LIB (?C?IMUL)
+
+
+LINK MAP OF MODULE:  .\Objects\0123 (DELAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?CLOCK
+            DATA    000AH     0002H     UNIT         _DATA_GROUP_
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     012DH     UNIT         ?CO?CLOCK
+            CODE    013BH     0048H     UNIT         ?PR?TIMER0_ROUTINE?CLOCK
+            CODE    0183H     003EH     UNIT         ?PR?MAIN?CLOCK
+            CODE    01C1H     0019H     UNIT         ?PR?_DELAY?DELAY
+            CODE    01DAH     0017H     UNIT         ?PR?TIMER0INIT?TIMER0
+            CODE    01F1H     0012H     UNIT         ?C?LIB_CODE
+            CODE    0203H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\0123 (DELAY)
+
+
+SEGMENT                            DATA_GROUP 
+  +--> CALLED SEGMENT            START    LENGTH
+------------------------------------------------
+?PR?TIMER0_ROUTINE?CLOCK         -----    -----
+  +--> ?CO?CLOCK
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                    -----    -----
+  +--> ?PR?MAIN?CLOCK
+
+?PR?MAIN?CLOCK                   -----    -----
+  +--> ?PR?TIMER0INIT?TIMER0
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/22/2023  07:45:44  PAGE 2
+
+
+  +--> ?CO?CLOCK
+  +--> ?PR?_DELAY?DELAY
+
+?PR?_DELAY?DELAY                 000AH    0002H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\0123 (DELAY)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:01C1H         PUBLIC        _delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:000AH         SYMBOL        i
+  D:000BH         SYMBOL        j
+  -------         ENDDO         
+  C:01C1H         LINE#         3
+  C:01C1H         LINE#         4
+  C:01C1H         LINE#         5
+  C:01CBH         LINE#         6
+  C:01CBH         LINE#         9
+  C:01CEH         LINE#         10
+  C:01D1H         LINE#         13
+  C:01D1H         LINE#         14
+  C:01D4H         LINE#         15
+  C:01D7H         LINE#         17
+  C:01D9H         LINE#         18
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        TIMER0
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  B:0088H.5       PUBLIC        TF0
+  C:01DAH         PUBLIC        Timer0Init
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:00B8H.1       PUBLIC        PT0
+  B:0088H.4       PUBLIC        TR0
+  -------         PROC          TIMER0INIT
+  C:01DAH         LINE#         7
+  C:01DAH         LINE#         8
+  C:01DAH         LINE#         9
+  C:01DDH         LINE#         10
+  C:01E0H         LINE#         11
+  C:01E3H         LINE#         12
+  C:01E6H         LINE#         13
+  C:01E8H         LINE#         14
+  C:01EAH         LINE#         15
+  C:01ECH         LINE#         16
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/22/2023  07:45:44  PAGE 3
+
+
+  C:01EEH         LINE#         17
+  C:01F0H         LINE#         18
+  -------         ENDPROC       TIMER0INIT
+  -------         ENDMOD        TIMER0
+
+  -------         MODULE        CLOCK
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0058H         PUBLIC        music
+  B:00A0H.5       PUBLIC        buzzer
+  C:0183H         PUBLIC        main
+  C:013BH         PUBLIC        timer0_routine
+  D:0008H         PUBLIC        key
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  C:000EH         PUBLIC        freqtab
+  D:0009H         PUBLIC        musickey
+  -------         PROC          MAIN
+  C:0183H         LINE#         268
+  C:0183H         LINE#         269
+  C:0183H         LINE#         271
+  C:0186H         LINE#         273
+  C:0186H         LINE#         274
+  C:0186H         LINE#         276
+  C:0198H         LINE#         277
+  C:0198H         LINE#         278
+  C:019AH         LINE#         279
+  C:019CH         LINE#         280
+  C:01AEH         LINE#         281
+  C:01B0H         LINE#         282
+  C:01B2H         LINE#         283
+  C:01B9H         LINE#         284
+  C:01BBH         LINE#         285
+  C:01BDH         LINE#         287
+  C:01BDH         LINE#         288
+  C:01BFH         LINE#         289
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER0_ROUTINE
+  C:013BH         LINE#         295
+  C:0148H         LINE#         297
+  C:015EH         LINE#         298
+  C:015EH         LINE#         299
+  C:0173H         LINE#         300
+  C:0176H         LINE#         302
+  C:0178H         LINE#         303
+  C:0178H         LINE#         306
+  -------         ENDPROC       TIMER0_ROUTINE
+  -------         ENDMOD        CLOCK
+
+  -------         MODULE        ?C?IMUL
+  C:01F1H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+Program Size: data=13.0 xdata=0 code=519
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
